@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>Lindholmen Lunch</title>
+   </head>
+   <body>
+{% if menu %}
+   {% for r in menu %}
+      <h1><a href="{{ r.url }}">{{ r.name }}</a></h1>
+      {% for d in r.dishes %}
+         <strong>{{ d.dish }}</strong> {{ d.desc }}<br />{{ d.price }},-<br />
+      {% endfor %}
+   {% endfor %}
+{% endif %}
+   </body>
+</html>
+
