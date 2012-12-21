@@ -7,15 +7,13 @@ _ip="0.0.0.0"
 _port="8001"
 
 
-echo uwsgi \
+uwsgi \
    --chdir=$_base \
    --socket="${_ip}:${_port}" \
    --master \
    --pidfile=$_pid \
    --daemonize=$_log \
    --processes=4 \
-   --uid=1000 \
-   --gid=33 \
    --harakiri=20 \
    --limit-as=128 \
    --max-requests=5000 \
