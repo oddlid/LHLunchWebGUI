@@ -160,4 +160,5 @@ LOGGING = {
 
 # This could point directly to the Perl server providing json output, 
 # or to a json file on e.g. Dropbox that is generated via cron or similar...
-RESTAURANTS_JSON_SRC_URL = 'http://lunch.lobstertech.net/lunch/lindholmen.json'
+#RESTAURANTS_JSON_SRC_URL = 'http://lunch.lobstertech.net/lunch/lindholmen.json'
+RESTAURANTS_JSON_SRC_URL = 'https://dl.dropbox.com/u/1637814/lhlunch.json'
