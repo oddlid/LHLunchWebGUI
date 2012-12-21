@@ -5,30 +5,97 @@
       <title>Lindholmen Lunch</title>
       <style type="text/css" media="screen">
          /*<![CDATA[*/
-            div.dish span.name {
+            body {
+               font-family: sans-serif;
+               font-size: 1.2em;
+               background: #000;
+            }
+            div#content {
+               background: #369;
+               border-radius: 2em;
+               padding: 2em;
+            }
+            h1.pghdr {
+               color: #dd9;
+            }
+            div.restaurant {
+               background: #eeb;
+               border-radius: 2em;
+               padding: 1em;
+               margin-bottom: 0.7em;
+            }
+            div.restaurant h2.name {
+               background: #69c;
                font-weight: bold;
+               border-radius: 2em;
+               padding: 0.8em;
+            }
+            h2.name a {
+               color: #eee;
+               font-size: 1.1em;
+            }
+            h2.name span.parsed {
+               font-size: 0.5em;
+               color: #eee;
+               float: right;
+            }
+            h2.name span.parsed:before {
+               content: "Parsed: ";
+            }
+            div.restaurant div.dishes {
+               background: #9cf;
+               border-radius: 2em;
+               padding: 0.8em;
+               margin-left: 2em;
+            }
+            div.dish {
+               background: #369;
+               color: #dd9;
+               border-radius: 2em;
+               padding: 0.7em;
+               margin-bottom: 0.5em;
+            }
+            div.dish h3.name {
+               color: #cf6;
+               font-weight: bold;
+               display: inline;
+            }
+            div.dish p.desc {
+               display: inline;
+            }
+            div.dish span.price {
+               font-size: 1.3em;
+               float: right;
+            }
+            div.dish span.price:after {
+               content: ",-";
             }
          /*]]>*/
       </style>
    </head>
    <body>
-      <div class="content">
-         {% for r in menu %}
-            <div class="restaurant">
-               <div class="name"><a href="{{ r.url }}">{{ r.name }}</a></div>
-               <div class="dishes">
-                  {% for d in r.dishes %}
-                     <div class="dish">
-                        <span class="name">{{ d.dish }}</span>
-                        <span class="desc">{{ d.desc }}</span>
-                        <span class="price">{{ d.price }}</span>
-                     </div> <!-- div dish -->
-                  {% endfor %}
-               </div>   <!-- div dishes -->
-            </div>  <!-- div restaurant -->
-         {% endfor %}
+      <div id="content">
+         <h1 class="pghdr">Lunch at Lindholmen today</h1>
+      {% for r in menu %}
+         {% if r.dishes|length > 0 %}
+         <div class="restaurant">
+            <h2 class="name">
+               <a href="{{ r.url }}">{{ r.name }}</a>
+               <span class="parsed">{{ r.fdate|date:"SHORT_DATETIME_FORMAT" }}</span>
+            </h2>
+            <div class="dishes">
+            {% for d in r.dishes %}
+               <div class="dish">
+                  <h3 class="name">{{ d.dish }}</h3>
+                  <p class="desc">{{ d.desc }}</p>
+                  <span class="price">{{ d.price }}</span>
+               </div> <!-- div dish -->
+            {% endfor %}
+            </div>   <!-- div dishes -->
+         </div>  <!-- div restaurant -->
+         {% endif %}
+      {% endfor %}
       </div>    <!-- div content -->
-
    </body>
 </html>
 
