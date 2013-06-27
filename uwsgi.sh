@@ -14,9 +14,7 @@ uwsgi \
    --pidfile=$_pid \
    --daemonize=$_log \
    --processes=4 \
-   --harakiri=20 \
-   --limit-as=128 \
-   --max-requests=5000 \
+   --max-requests=512 \
    --vacuum \
    --module=LHLunchWebGUI.wsgi:application \
    --env DJANGO_SETTINGS_MODULE=LHLunchWebGUI.settings

@@ -116,17 +116,17 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
-    'restaurants'
+   'django.contrib.auth',
+   'django.contrib.contenttypes',
+   'django.contrib.sessions',
+   'django.contrib.sites',
+   #'django.contrib.messages',
+   #'django.contrib.staticfiles',
+   # Uncomment the next line to enable the admin:
+   'django.contrib.admin',
+   # Uncomment the next line to enable admin documentation:
+   # 'django.contrib.admindocs',
+   'restaurants'
 )
 
 # A sample logging configuration. The only tangible logging
@@ -162,4 +162,5 @@ LOGGING = {
 # or to a json file on e.g. Dropbox that is generated via cron or similar...
 #RESTAURANTS_JSON_SRC_URL = 'http://lunch.lobstertech.net/lunch/lindholmen.json'
 #RESTAURANTS_JSON_SRC_URL = 'https://dl.dropbox.com/u/1637814/lhlunch.json'
-RESTAURANTS_JSON_SRC_URL = 'http://127.0.0.1:3000/lindholmen.json'
+#RESTAURANTS_JSON_SRC_URL = 'http://127.0.0.1:3000/lindholmen.json'
+RESTAURANTS_JSON_SRC_URL = 'file:///tmp/lindholmen.json'
