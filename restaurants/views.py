@@ -12,3 +12,6 @@ def index(request):
       r['fdate'] = datetime.datetime.fromtimestamp(r['date'])
    context = { 'menu': menu }
    return render(request, 'restaurants/index.html', context)
+
+def formats(request):
+   return render(request, 'restaurants/formats.html')
